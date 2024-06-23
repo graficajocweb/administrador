@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Catalogo </h1>
+        <button id="shareBtnn">Compartir Fotos</button>
+    
+        <a href="https://res.cloudinary.com/fotoqe123/image/upload/v1661527328/qr-code_19_udmhhu.png" target="_blank"><button style="margin: 5px ;">Ver Qr</button></a> 
+        <iframe
+            src="https://onedrive.live.com/embed?cid=A534A1E5D02282FF&resid=A534A1E5D02282FF%214320&authkey=AHDY4xiQvG8iyS0&em=2"
+           frameborder="0" scrolling="no"></iframe>
+    </div>
+    <script src="js/administrador.js"></script>
+    <script>
+        const shareBtnn = document.getElementById('shareBtnn')
+        shareBtnn.addEventListener('click', event => {
+            if (navigator.share) {
+                //drive
+                navigator.share({
+                    text: 'Please read this great article: ',
+                    url: 'https://graficajoc.000webhostapp.com/catalogo.html'
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                    .catch((err) => console.error(err));
+            } else {
+
+                alert("The current browser does not support the share function. Please, manually share the link")
+            }
+        });
+    </script>
+</body>
+
+</html>
